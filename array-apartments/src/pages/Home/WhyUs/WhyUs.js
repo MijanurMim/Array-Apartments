@@ -1,7 +1,7 @@
 import React from "react";
 
 const WhyUs = () => {
-  return <div>this is Why US</div>;
+  return <div>why us</div>;
 };
 
 export default WhyUs;

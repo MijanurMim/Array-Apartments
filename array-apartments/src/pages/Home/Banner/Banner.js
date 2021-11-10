@@ -1,12 +1,7 @@
-import { Typography } from "@mui/material";
 import React from "react";
 
 const Banner = () => {
-  return (
-    <div>
-      <Typography>THis is banner</Typography>
-    </div>
-  );
+  return <div>Banner</div>;
 };
 
 export default Banner;
