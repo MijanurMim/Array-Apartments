@@ -2,7 +2,7 @@ import {
   Alert,
   Button,
   Container,
-  Grid,
+  Paper,
   TextField,
   Typography,
 } from "@mui/material";
@@ -40,57 +40,66 @@ const Login = () => {
   };
   return (
     <Container>
-      <Grid container spacing={2}>
-        <Grid item sx={{ mt: 10 }} xs={12} md={6}>
-          <Typography variant="h4" color="primary">
+      <Paper sx={{ my: "100px" }}>
+        <Typography variant="h3" color="secondary">
+          Login
+        </Typography>
+        <form onSubmit={handleLoginSubmit}>
+          <TextField
+            sx={{ width: "75%", m: 1 }}
+            id="standard-basic"
+            label="Your Email"
+            variant="standard"
+            type="email"
+            name="email"
+            onBlur={handleOnChange}
+            color="secondary"
+          />
+          <TextField
+            sx={{ width: "75%", m: 1 }}
+            id="filled-basic"
+            label="Your Password"
+            variant="filled"
+            type="password"
+            name="password"
+            onChange={handleOnChange}
+            color="secondary"
+          />
+          <Button
+            type="submit"
+            sx={{ width: "75%", m: 1 }}
+            variant="contained"
+            color="primary"
+          >
             Login
-          </Typography>
-          <form onSubmit={handleLoginSubmit}>
-            <TextField
-              sx={{ width: "75%", m: 1 }}
-              id="standard-basic"
-              label="Your Email"
-              variant="standard"
-              type="email"
-              name="email"
-              onBlur={handleOnChange}
-            />
-            <TextField
-              sx={{ width: "75%", m: 1 }}
-              id="filled-basic"
-              label="Your Password"
-              variant="filled"
-              type="password"
-              name="password"
-              onChange={handleOnChange}
-            />
-            <Button
-              type="submit"
-              sx={{ width: "75%", m: 1 }}
-              variant="contained"
-            >
-              Login
-            </Button>
-            {/* go to register component  */}
-            <Link style={{ textDecoration: "none" }} to="register">
-              <Button>New User? Please Register</Button>
-            </Link>
-
-            {/* Spinner  */}
-            {isLoading && <Spinner />}
-
-            {/* Login Alert  */}
-            {user?.email && (
-              <Alert severity="success">You Logged in Successfully</Alert>
-            )}
-            {authError && <Alert severity="error">{authError}</Alert>}
-          </form>
-          <p>----------------------------------------------</p>
-          <Button onClick={handleGoogleSignIn} variant="contained">
-            Google Sign In
           </Button>
-        </Grid>
-      </Grid>
+          <br />
+          {/* go to register component  */}
+          <Link style={{ textDecoration: "none" }} to="register">
+            <Button variant="outlined" color="secondary">
+              New User? Please Register
+            </Button>
+          </Link>
+
+          {/* Spinner  */}
+          {isLoading && <Spinner />}
+
+          {/* Login Alert  */}
+          {user?.email && (
+            <Alert severity="success">You Logged in Successfully</Alert>
+          )}
+          {authError && <Alert severity="error">{authError}</Alert>}
+        </form>
+
+        <Button
+          onClick={handleGoogleSignIn}
+          variant="contained"
+          sx={{ my: "20px" }}
+          color="secondary"
+        >
+          Google Sign In
+        </Button>
+      </Paper>
     </Container>
   );
 };

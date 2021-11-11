@@ -13,8 +13,8 @@ const Reviews = () => {
 
   return (
     <div>
-      <Typography variant="h3" color="primary" sx={{ mt: "80px" }}>
-        Total Reviews
+      <Typography variant="h2" color="secondary" sx={{ mt: "120px" }}>
+        Customer Reviews
       </Typography>
       <Grid item container xs={12} spacing={4}>
         {/* this line is for side space of the page  */}
@@ -25,7 +25,7 @@ const Reviews = () => {
           xs={false}
           md={10}
           justifyContent="space-around"
-          sx={{ my: "40px" }}
+          sx={{ my: "20px" }}
         >
           {reviews.map((pd) => (
             <Review key={pd._id} pd={pd}></Review>

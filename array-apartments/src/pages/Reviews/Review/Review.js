@@ -37,7 +37,7 @@ const Review = ({ pd }) => {
       <Card className={classes.card}>
         <CardHeader
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" color="secondary">
               <ShareIcon></ShareIcon>
             </IconButton>
           }
@@ -45,13 +45,11 @@ const Review = ({ pd }) => {
         />
         <CardActionArea>
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              {description}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="h6">{description}</Typography>
+            <Typography variant="h7" color="secondary">
               {email}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography>
               <Rating name="read-only" value={rating} readOnly />
             </Typography>
           </CardContent>
