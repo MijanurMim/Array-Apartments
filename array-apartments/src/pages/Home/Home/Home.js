@@ -18,7 +18,9 @@ const Home = () => {
   };
   const handleSearch = () => {
     // sending data using query
-    fetch(`http://localhost:5000/searchPackages?search=${search}`)
+    fetch(
+      `https://mighty-hollows-24584.herokuapp.com/searchPackages?search=${search}`
+    )
       .then((res) => res.json())
       .then((result) => setPackages(result));
   };

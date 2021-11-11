@@ -47,7 +47,7 @@ const PackageDetails = () => {
       alert("Tour Confirmed Check My Bookings");
       data.email = user?.email;
       data.status = "Pending";
-      fetch("http://localhost:5000/addNewBooking", {
+      fetch("https://mighty-hollows-24584.herokuapp.com/addNewBooking", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
@@ -61,7 +61,9 @@ const PackageDetails = () => {
   const { packageId } = useParams();
   const [packageDetail, setPackageDetail] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/packageDetails/${packageId}`)
+    fetch(
+      `https://mighty-hollows-24584.herokuapp.com/packageDetails/${packageId}`
+    )
       .then((res) => res.json())
       .then((data) => setPackageDetail(data));
   });

@@ -12,19 +12,24 @@ const MyBookings = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myBookings/${user?.email}`)
+    fetch(
+      `https://mighty-hollows-24584.herokuapp.com/myBookings/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyPackages(data));
   }, [user.email]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myBookings/${user?.email}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      // body: JSON.stringify(),
-    })
+    fetch(
+      `https://mighty-hollows-24584.herokuapp.com/myBookings/${user?.email}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        // body: JSON.stringify(),
+      }
+    )
       .then((res) => res.json())
       .then((data) => setMyPackagesDetails(data));
   }, [user.email]);
@@ -33,7 +38,7 @@ const MyBookings = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are You Sure You Want to Delete ? ");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteBooking/${id}`, {
+      fetch(`https://mighty-hollows-24584.herokuapp.com/deleteBooking/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
         //   delete will not send any data thats why it does not have body  method
@@ -60,7 +65,7 @@ const MyBookings = () => {
       "Are You Sure You Want to Change the Status ? "
     );
     if (proceed) {
-      fetch(`http://localhost:5000/updateStatus/${id}`, {
+      fetch(`https://mighty-hollows-24584.herokuapp.com/updateStatus/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

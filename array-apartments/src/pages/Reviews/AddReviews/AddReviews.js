@@ -15,7 +15,7 @@ const AddReviews = () => {
       alert(" Your Reviewsubmitted succesfully");
       data.email = user?.email;
 
-      fetch("http://localhost:5000/addReviews", {
+      fetch("https://mighty-hollows-24584.herokuapp.com/addReviews", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),

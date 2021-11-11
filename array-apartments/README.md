@@ -2,7 +2,7 @@
 
 # Array Apartments
 
-Check Out Live Site : https://arrayapartments-22d83.web.app/packages
+Check Out Live Site : https://arrayapartments-22d83.web.app/home
 
 #Short Description
 Array Apartments is countries largest real state agency. We have the best apartments at the best locations of the country.

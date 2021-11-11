@@ -16,7 +16,7 @@ const AddPackages = () => {
       alert("New Package Added");
       data.email = user?.email;
       data.status = "Pending";
-      fetch("http://localhost:5000/addEvent", {
+      fetch("https://mighty-hollows-24584.herokuapp.com/addEvent", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),

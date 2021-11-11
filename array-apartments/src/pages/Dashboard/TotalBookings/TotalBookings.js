@@ -10,7 +10,7 @@ const TotalBookings = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allBookings")
+    fetch("https://mighty-hollows-24584.herokuapp.com/allBookings")
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);
@@ -19,7 +19,7 @@ const TotalBookings = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are You Sure You Want to Delete ? ");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteBooking/${id}`, {
+      fetch(`https://mighty-hollows-24584.herokuapp.com/deleteBooking/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
         //   delete will not send any data thats why it does not have body  method
