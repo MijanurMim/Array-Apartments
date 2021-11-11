@@ -27,42 +27,43 @@ const WhyUs = () => {
           className={classes.whyUsImg}
           src="https://image.freepik.com/free-photo/breakup-marriage-couple-with-divorce-certification_53876-14774.jpg"
           alt=""
+          height="100%"
         />
       </Grid>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} sx={{ ml: "40px" }}>
         <div>
-          <Typography variant="h1" color="#b2ff59">
+          <Typography variant="h1" color="secondary">
             Why Us
           </Typography>
           <Typography variant="h4" color="primary">
-            Every Time We Provide Best Service
+            Every Time We Provide Best Services
           </Typography>
         </div>
         <div className="whyUsPoints">
           <div className="whyUsPointsItem">
             <div className="whyUsPointsInnerItem">
-              <IconButton>
-                <PublicIcon />
+              <IconButton color="secondary">
+                <AssessmentIcon />
               </IconButton>
               <Typography>Exclusive Packages</Typography>
             </div>
             <div>
-              <IconButton>
-                <AssessmentIcon />
+              <IconButton color="secondary">
+                <PublicIcon />
               </IconButton>
               <Typography>World Class Service</Typography>
             </div>
           </div>
           <div className="whyUsPointsItem">
             <div className="whyUsPointsInnerItem">
-              <IconButton>
+              <IconButton color="secondary">
                 <EmojiPeopleIcon />
               </IconButton>
 
-              <Typography>Best Travel Guide</Typography>
+              <Typography>Best Buying Guide</Typography>
             </div>
             <div>
-              <IconButton>
+              <IconButton color="secondary">
                 <SecurityIcon />
               </IconButton>
               <Typography>100% Secure</Typography>
