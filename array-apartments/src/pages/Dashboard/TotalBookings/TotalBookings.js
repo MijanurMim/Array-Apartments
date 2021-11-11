@@ -66,7 +66,7 @@ const TotalBookings = () => {
   };
   return (
     <div>
-      <Typography variant="h2" sx={{ mt: "100px" }} color="primary">
+      <Typography variant="h2" sx={{ mt: "100px" }} color="secondary">
         Total Bookings:{bookings.length}
       </Typography>
       {bookings.map((pd) => (

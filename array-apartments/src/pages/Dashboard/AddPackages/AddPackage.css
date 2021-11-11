@@ -1,7 +1,7 @@
 .inputField {
   width: 50%;
   border-radius: 30px;
-  border: 1px solid #c6d2d8;
+  border: 1px solid #8bc34a;
   height: 30px;
 
   margin-bottom: 20px;
@@ -11,10 +11,7 @@
   border: 1px solid #e3e3e4;
   box-shadow: 0 0 10px #c5d7e9;
 }
-.packageDetailForm {
-  border: 1px solid #e3e3e4;
-  box-shadow: 0 0 10px #c5d7e9;
-}
+
 .button {
   width: 50%;
 }

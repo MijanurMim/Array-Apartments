@@ -12,15 +12,6 @@ const TotalBooking = ({ pd, handleUpdate, handleDelete }) => {
   return (
     <TableContainer component={Paper} className="table">
       <Table sx={{ minWidth: 300 }} aria-label="simple table">
-        {/* <TableHead>
-      <TableRow>
-        <TableCell>Title</TableCell>
-        <TableCell align="right">Email</TableCell>
-        <TableCell align="right">Date</TableCell>
-        <TableCell align="right">Status</TableCell>
-        <TableCell align="right">Action</TableCell>
-      </TableRow>
-    </TableHead> */}
         <TableBody>
           <TableRow
             key={title}
@@ -35,10 +26,18 @@ const TotalBooking = ({ pd, handleUpdate, handleDelete }) => {
             <TableCell align="right">{cost}</TableCell>
             <TableCell align="right">{status}</TableCell>
             <TableCell align="right">
-              <Button onClick={() => handleUpdate(pd._id)} variant="contained">
+              <Button
+                onClick={() => handleUpdate(pd._id)}
+                variant="outlined"
+                color="secondary"
+              >
                 Confirm
               </Button>
-              <Button onClick={() => handleDelete(pd._id)} variant="contained">
+              <Button
+                onClick={() => handleDelete(pd._id)}
+                variant="contained"
+                color="secondary"
+              >
                 Delete
               </Button>
             </TableCell>

@@ -1,4 +1,4 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
@@ -26,54 +26,66 @@ const AddPackages = () => {
     }
   };
   return (
-    <Container sx={{ mt: "165px" }} className="packageDetailForm">
-      <Typography variant="h3" color="primary">
-        Add New Package
-      </Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          {...register("title", { required: true })}
-          placeholder="Title"
-          className="inputField"
-        />
+    <Container sx={{ mt: "100px" }}>
+      <Paper>
+        <Typography variant="h3" color="secondary">
+          Add New Package
+        </Typography>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            {...register("title", { required: true })}
+            placeholder="Title"
+            className="inputField"
+          />
+          <br />
 
-        <input
-          {...register("date", { required: true })}
-          type="date"
-          className="inputField"
-        />
-        <input
-          {...register("cost", { required: true })}
-          type="number"
-          placeholder="Cost"
-          className="inputField"
-        />
-        <input
-          {...register("description", { required: true })}
-          type="textarea"
-          placeholder="Description"
-          className="inputField"
-        />
-        <input
-          {...register("image", { required: true })}
-          placeholder="Image Link (Ex: Freepik) "
-          className="inputField"
-        />
-        <br />
-        <select
-          {...register("packageType", { required: true })}
-          type="date"
-          className="inputField"
-        >
-          <option value="single">Single Bedroom</option>
-          <option value="couple">Double Bedroom</option>
-          <option value="family">Four Bedroom</option>
-        </select>
-        <br />
-        <Button type="submit" variant="contained" className="button">
-          Submit
-        </Button>
-      </form>
+          <input
+            {...register("date", { required: true })}
+            type="date"
+            className="inputField"
+          />
+          <br />
+          <input
+            {...register("cost", { required: true })}
+            type="number"
+            placeholder="Cost"
+            className="inputField"
+          />
+          <br />
+          <input
+            {...register("description", { required: true })}
+            type="textarea"
+            placeholder="Description"
+            className="inputField"
+          />
+          <br />
+          <input
+            {...register("image", { required: true })}
+            placeholder="Image Link (Ex: Freepik) "
+            className="inputField"
+          />
+          <br />
+          <select
+            {...register("packageType", { required: true })}
+            type="date"
+            className="inputField"
+          >
+            <option value="single">Single Bedroom</option>
+            <option value="couple">Double Bedroom</option>
+            <option value="family">Four Bedroom</option>
+          </select>
+          <br />
+          <Button
+            type="submit"
+            variant="contained"
+            className="button"
+            sx={{ my: "20px" }}
+            color="secondary"
+          >
+            Submit
+          </Button>
+        </form>
+      </Paper>
     </Container>
   );
 };

@@ -1,4 +1,11 @@
-import { Alert, Button, Container, TextField } from "@mui/material";
+import {
+  Alert,
+  Button,
+  Container,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 
@@ -38,22 +45,33 @@ const MakeAdmin = () => {
 
   return (
     <Container>
-      <h2>Make me Admin</h2>
-      <form onSubmit={handleAdminSubmit}>
-        <TextField
-          sx={{ width: "60%" }}
-          id="standard-basic"
-          label="Email"
-          type="email"
-          variant="standard"
-          onBlur={handleAdminInput}
-        />
-        <Button type="submit" variant="contained">
-          Make Admin
-        </Button>
-      </form>
-      {/* Login Alert  */}
-      {success && <Alert severity="success">Made Admin Successfully</Alert>}
+      <Paper elevation="4">
+        <Typography variant="h3" color="secondary">
+          Make New Admin
+        </Typography>
+        <form onSubmit={handleAdminSubmit}>
+          <TextField
+            sx={{ width: "60%" }}
+            id="standard-basic"
+            label="Email"
+            type="email"
+            variant="standard"
+            color="secondary"
+            onBlur={handleAdminInput}
+          />
+          <br />
+          <Button
+            type="submit"
+            variant="contained"
+            color="secondary"
+            sx={{ width: "60%", my: "20px" }}
+          >
+            Make Admin
+          </Button>
+        </form>
+        {/* Login Alert  */}
+        {success && <Alert severity="success">Made Admin Successfully</Alert>}
+      </Paper>
     </Container>
   );
 };

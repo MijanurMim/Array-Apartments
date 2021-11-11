@@ -39,8 +39,8 @@ const AdminManagePackages = () => {
 
   return (
     <div>
-      <Typography variant="h3" color="primary" sx={{ mt: "80px" }}>
-        Our Packages
+      <Typography variant="h2" color="secondary" sx={{ mt: "80px" }}>
+        Managing All Packages
       </Typography>
       <Grid item container xs={12} spacing={4}>
         {/* this line is for side space of the page  */}

@@ -1,6 +1,7 @@
 import { BookmarkRemoveTwoTone } from "@mui/icons-material";
 import AdminPanelSettingsTwoToneIcon from "@mui/icons-material/AdminPanelSettingsTwoTone";
 import ExitToAppTwoToneIcon from "@mui/icons-material/ExitToAppTwoTone";
+import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import ManageAccountsTwoToneIcon from "@mui/icons-material/ManageAccountsTwoTone";
 import MenuIcon from "@mui/icons-material/Menu";
 import MiscellaneousServicesTwoToneIcon from "@mui/icons-material/MiscellaneousServicesTwoTone";
@@ -28,6 +29,7 @@ import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import AddReviews from "../../Reviews/AddReviews/AddReviews";
 import AddPackages from "../AddPackages/AddPackages";
 import AdminManagePackages from "../AdminManagePackages/AdminManagePackages.js/AdminManagePackages.js";
+import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin.js";
 import MyBookings from "../MyBookings/MyBookings";
 import Payment from "../Payment/Payment";
@@ -63,9 +65,19 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
 
+      {/* Go back to home page  */}
+      <Link to="/home" style={{ textDecoration: "none" }}>
+        <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+          <HomeTwoToneIcon />
+          <Button color="secondary">Home</Button>
+        </Button>
+      </Link>
+
       {/* Nesting area  */}
       {!admin && (
         <Box>
+          <Link to={`${url}`} style={{ textDecoration: "none" }}></Link>
+
           <Link to={`${url}/payment`} style={{ textDecoration: "none" }}>
             <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
               <PaymentTwoToneIcon />
@@ -100,6 +112,8 @@ function Dashboard(props) {
       )}
       {admin && (
         <Box>
+          <Link to={`${url}`} style={{ textDecoration: "none" }}></Link>
+
           <Link to={`${url}/makeAdmin`} style={{ textDecoration: "none" }}>
             <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
               <AdminPanelSettingsTwoToneIcon />
@@ -168,7 +182,7 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h3" noWrap component="div" color="secondary">
             Dashboard
           </Typography>
         </Toolbar>
@@ -223,18 +237,25 @@ function Dashboard(props) {
         <Toolbar />
         {/* Dashboard Routing  */}
         <Switch>
-          <Route exact path={`${url}/payment`}>
+          <Route exact path={`${path}`}>
+            <DashboardHome></DashboardHome>
+          </Route>
+
+          <Route path={`${path}/payment`}>
             <Payment></Payment>
           </Route>
 
-          <Route exact path={`${url}/myBookings`}>
+          <Route path={`${path}/myBookings`}>
             <MyBookings></MyBookings>
           </Route>
-          <Route exact path={`${url}/addReviews`}>
+          <Route path={`${path}/addReviews`}>
             <AddReviews></AddReviews>
           </Route>
 
           {/* Admin Route  */}
+          <Route exact path={`${path}`}>
+            <DashboardHome></DashboardHome>
+          </Route>
           <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </AdminRoute>

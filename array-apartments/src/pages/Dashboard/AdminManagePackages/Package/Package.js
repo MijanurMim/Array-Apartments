@@ -41,7 +41,7 @@ const Package = ({ pd, handleDelete }) => {
         <CardHeader
           avatar={<Avatar aria-label="recipe" src={image}></Avatar>}
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" color="secondary">
               <ShareIcon></ShareIcon>
             </IconButton>
           }
@@ -63,10 +63,16 @@ const Package = ({ pd, handleDelete }) => {
         <CardActions className={classes.cardButton}>
           {/* dynamic routing for every service  */}
           <Link to={`/packageDetails/${_id}`} className={classes.buttonText}>
-            <Button variant="outlined">Book {title.toLowerCase()} </Button>
+            <Button variant="outlined" color="secondary">
+              Book {title.toLowerCase()}{" "}
+            </Button>
           </Link>
 
-          <Button onClick={() => handleDelete(pd._id)} variant="contained">
+          <Button
+            onClick={() => handleDelete(pd._id)}
+            variant="contained"
+            color="secondary"
+          >
             Delete
           </Button>
         </CardActions>
