@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import useFirebase from "../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 import TotalBooking from "./TotalBooking/TotalBooking";
 
 const TotalBookings = () => {
-  const { user } = useFirebase();
+  const { user } = useAuth();
   const [bookings, setBookings] = useState([]);
   const [control, setControl] = useState(false);
 

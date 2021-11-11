@@ -15,8 +15,11 @@ import * as React from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import AddPackages from "../AddPackages/AddPackages";
+import AdminManagePackages from "../AdminManagePackages/AdminManagePackages.js/AdminManagePackages.js";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin.js";
+import TotalBookings from "../TotalBookings/TotalBookings";
 
 const drawerWidth = 200;
 
@@ -36,16 +39,28 @@ function Dashboard(props) {
     <div>
       <Toolbar />
       <Divider />
-      {/* go to appointment  */}
 
       {/* Nesting area  */}
-      <Link to={`${url}`}>
-        <Button color="secondary">Dashboard</Button>
-      </Link>
+      {!admin && (
+        <Box>
+          <Link to={`${url}`}>
+            <Button color="secondary">Dashboard</Button>
+          </Link>
+        </Box>
+      )}
       {admin && (
         <Box>
           <Link to={`${url}/makeAdmin`}>
             <Button color="secondary">Make Admin</Button>
+          </Link>
+          <Link to={`${url}/addPackages`}>
+            <Button color="secondary">Add Packages</Button>
+          </Link>
+          <Link to={`${url}/adminManagePackages`}>
+            <Button color="secondary">Manage All Packages</Button>
+          </Link>
+          <Link to={`${url}/totalBookings`}>
+            <Button color="secondary">Total Bookings</Button>
           </Link>
         </Box>
       )}
@@ -124,6 +139,18 @@ function Dashboard(props) {
 
           <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
+          </AdminRoute>
+
+          <AdminRoute path={`${path}/addPackages`}>
+            <AddPackages></AddPackages>
+          </AdminRoute>
+
+          <AdminRoute path={`${path}/adminManagePackages`}>
+            <AdminManagePackages></AdminManagePackages>
+          </AdminRoute>
+
+          <AdminRoute path={`${path}/totalBookings`}>
+            <TotalBookings></TotalBookings>
           </AdminRoute>
         </Switch>
       </Box>

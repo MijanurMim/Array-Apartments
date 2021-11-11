@@ -1,10 +1,11 @@
 import { Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import useFirebase from "../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
+import "./AddPackage.css";
 
 const AddPackages = () => {
-  const { user } = useFirebase();
+  const { user } = useAuth();
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {

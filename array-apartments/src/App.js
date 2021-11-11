@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthProvider";
-import AddMember from "./pages/AddMember/AddMember";
-import AddPackages from "./pages/AddPackages/AddPackages";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Home from "./pages/Home/Home/Home";
 import Login from "./pages/Login/Login/Login";
@@ -14,7 +12,6 @@ import Packages from "./pages/Packages/Packages/Packages";
 import Register from "./pages/Register/Register";
 import Footer from "./pages/Shared/Footer/Footer";
 import Header from "./pages/Shared/Header/Header";
-import TotalBookings from "./pages/TotalBookings/TotalBookings";
 
 function App() {
   return (
@@ -34,24 +31,12 @@ function App() {
               <Packages></Packages>
             </Route>
 
-            <PrivateRoute exact path="/addPackages">
-              <AddPackages></AddPackages>
-            </PrivateRoute>
-
             <PrivateRoute exact path="/packageDetails/:packageId">
               <PackageDetails></PackageDetails>
             </PrivateRoute>
 
-            <PrivateRoute exact path="/addMember">
-              <AddMember></AddMember>
-            </PrivateRoute>
-
             <PrivateRoute exact path="/myBookings">
               <MyBookings></MyBookings>
-            </PrivateRoute>
-
-            <PrivateRoute exact path="/totalBookings">
-              <TotalBookings></TotalBookings>
             </PrivateRoute>
 
             <PrivateRoute path="/dashboard">
