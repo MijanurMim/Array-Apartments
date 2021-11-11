@@ -17,8 +17,10 @@ import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import AddPackages from "../AddPackages/AddPackages";
 import AdminManagePackages from "../AdminManagePackages/AdminManagePackages.js/AdminManagePackages.js";
-import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin.js";
+import MyBookings from "../MyBookings/MyBookings";
+import Payment from "../Payment/Payment";
+import Reviews from "../Reviews/Reviews/Reviews";
 import TotalBookings from "../TotalBookings/TotalBookings";
 
 const drawerWidth = 200;
@@ -43,8 +45,14 @@ function Dashboard(props) {
       {/* Nesting area  */}
       {!admin && (
         <Box>
-          <Link to={`${url}`}>
-            <Button color="secondary">Dashboard</Button>
+          <Link to={`${url}/payment`}>
+            <Button color="secondary">Payment</Button>
+          </Link>
+          <Link to={`${url}/myBookings`}>
+            <Button color="secondary">My Bookings</Button>
+          </Link>
+          <Link to={`${url}/reviews`}>
+            <Button color="secondary">Reviews</Button>
           </Link>
         </Box>
       )}
@@ -133,10 +141,17 @@ function Dashboard(props) {
         <Toolbar />
         {/* Dashboard Routing  */}
         <Switch>
-          <Route exact path={path}>
-            <DashboardHome></DashboardHome>
+          <Route exact path={`${url}/payment`}>
+            <Payment></Payment>
+          </Route>
+          <Route exact path={`${url}/myBookings`}>
+            <MyBookings></MyBookings>
+          </Route>
+          <Route exact path={`${url}/reviews`}>
+            <Reviews></Reviews>
           </Route>
 
+          {/* Admin Route  */}
           <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </AdminRoute>

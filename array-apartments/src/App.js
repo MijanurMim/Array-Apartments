@@ -5,7 +5,6 @@ import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Home from "./pages/Home/Home/Home";
 import Login from "./pages/Login/Login/Login";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
-import MyBookings from "./pages/MyBookings/MyBookings";
 import NotFound from "./pages/NotFound/NotFound";
 import PackageDetails from "./pages/Packages/PackageDetails/PackageDetails";
 import Packages from "./pages/Packages/Packages/Packages";
@@ -33,10 +32,6 @@ function App() {
 
             <PrivateRoute exact path="/packageDetails/:packageId">
               <PackageDetails></PackageDetails>
-            </PrivateRoute>
-
-            <PrivateRoute exact path="/myBookings">
-              <MyBookings></MyBookings>
             </PrivateRoute>
 
             <PrivateRoute path="/dashboard">

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
-import Booking from "./Booking.js/Booking";
+import MyBooking from "./MyBooking/MyBooking";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -86,12 +86,12 @@ const MyBookings = () => {
         My Bookings:{myPackages.length}{" "}
       </Typography>
       {myPackagesDetails.map((pd) => (
-        <Booking
+        <MyBooking
           key={pd._id}
           pd={pd}
           handleUpdate={handleUpdate}
           handleDelete={handleDelete}
-        ></Booking>
+        ></MyBooking>
       ))}
     </div>
   );

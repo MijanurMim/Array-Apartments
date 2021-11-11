@@ -63,15 +63,6 @@ const Header = () => {
                     Packages
                   </Button>
                 </Link>
-                <Link to="/myBookings" className={classes.link}>
-                  <Button
-                    variant="contained"
-                    sx={{ mx: 2 }}
-                    className={classes.navbarButton}
-                  >
-                    My Bookings
-                  </Button>
-                </Link>
 
                 <Link to="/dashboard" className={classes.link}>
                   <Button
