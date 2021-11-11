@@ -147,6 +147,7 @@ const PackageDetails = () => {
             variant="contained"
             color="secondary"
             className="button"
+            sx={{ my: "20px" }}
           >
             Confirm Booking
           </Button>

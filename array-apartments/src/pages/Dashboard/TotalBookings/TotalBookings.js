@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import TotalBooking from "./TotalBooking/TotalBooking";
@@ -65,7 +66,7 @@ const TotalBookings = () => {
     }
   };
   return (
-    <div>
+    <Box>
       <Typography variant="h2" sx={{ mt: "100px" }} color="secondary">
         Total Bookings:{bookings.length}
       </Typography>
@@ -77,7 +78,7 @@ const TotalBookings = () => {
           handleUpdate={handleUpdate}
         ></TotalBooking>
       ))}
-    </div>
+    </Box>
   );
 };
 

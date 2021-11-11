@@ -36,10 +36,18 @@ const MyBooking = ({ pd, handleUpdate, handleDelete }) => {
             <TableCell align="right">{cost}</TableCell>
             <TableCell align="right">{status}</TableCell>
             <TableCell align="right">
-              <Button onClick={() => handleUpdate(pd._id)} variant="contained">
+              <Button
+                onClick={() => handleUpdate(pd._id)}
+                variant="outlined"
+                color="secondary"
+              >
                 Confirm
               </Button>
-              <Button onClick={() => handleDelete(pd._id)} variant="contained">
+              <Button
+                onClick={() => handleDelete(pd._id)}
+                variant="contained"
+                color="secondary"
+              >
                 Delete
               </Button>
             </TableCell>

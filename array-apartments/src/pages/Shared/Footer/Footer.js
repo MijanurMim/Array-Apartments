@@ -1,11 +1,15 @@
-import { Grid, Typography } from "@mui/material";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import { Grid, IconButton, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { Box } from "@mui/system";
 import React from "react";
 // custom css
 const useStyles = makeStyles((theme) => ({
   footer: {
     marginTop: "400px",
-    backgroundColor: "#616161",
+    backgroundColor: "#424242",
     color: "white",
     position: "sticky",
     top: "100%",
@@ -14,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "40px",
   },
   bottomFooter: {
-    backgroundColor: "#424242",
+    backgroundColor: "#8bc34a",
 
     color: "white",
     marginTop: "20px",
@@ -40,7 +44,9 @@ const Footer = () => {
           <Grid item xs={false} sm={4}></Grid>
 
           <Grid item xs={12} sm={4}>
-            <Typography variant="h3">Fellow Travellers</Typography>
+            <Typography variant="h3" color="secondary">
+              Array Apartments
+            </Typography>
           </Grid>
           {/* this line is for side space of the page  */}
           <Grid item xs={false} sm={4}></Grid>
@@ -49,27 +55,39 @@ const Footer = () => {
         <Grid item container spacing={4}>
           {/* this line is for side space of the page  */}
           <Grid item xs={false} sm={1}></Grid>
-          <Grid item xs={12} sm={3}>
-            <Typography>Contact</Typography>
+          <Grid item xs={12} sm={3} sx={{ mt: "20px" }}>
+            <Typography>Contact Us</Typography>
             <Typography>Services</Typography>
             <Typography>Feedback</Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} sx={{ mt: "20px" }}>
             <Typography>Packages</Typography>
-            <Typography>Members</Typography>
-            <Typography>Cost</Typography>
+            <Typography>Agents</Typography>
+            <Typography>Partners</Typography>
           </Grid>
           <Grid item xs={12} sm={3}>
-            <Typography>Volunteer</Typography>
-            <Typography>Destinations</Typography>
-            <Typography>Security</Typography>
+            <Box>
+              <IconButton color="secondary">
+                <FacebookIcon></FacebookIcon>
+              </IconButton>
+            </Box>
+            <Box>
+              <IconButton color="secondary">
+                <InstagramIcon></InstagramIcon>
+              </IconButton>
+            </Box>
+            <Box>
+              <IconButton color="secondary">
+                <GitHubIcon></GitHubIcon>
+              </IconButton>
+            </Box>
           </Grid>
 
           {/* this line is for side space of the page  */}
           <Grid item xs={false} sm={1}></Grid>
         </Grid>
         <div className={classes.bottomFooter}>
-          <small>&copy; - Fellow Travellers</small>
+          <small>&copy; - Array Apartments 2021</small>
         </div>
       </Grid>
     </Grid>

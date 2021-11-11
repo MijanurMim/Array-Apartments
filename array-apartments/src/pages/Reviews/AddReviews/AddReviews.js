@@ -26,7 +26,7 @@ const AddReviews = () => {
   };
   return (
     <Container sx={{ mt: "165px" }} className="packageDetailForm">
-      <Typography variant="h3" color="primary">
+      <Typography variant="h3" color="secondary">
         Give Review
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -36,14 +36,14 @@ const AddReviews = () => {
           className="inputField"
           defaultValue={user.displayName}
         />
-
+        <br />
         <input
           {...register("description", { required: true })}
           type="textarea"
           placeholder="Description"
           className="inputField"
         />
-
+        <br />
         {/* Rating area  */}
         <input
           {...register("rating", { required: true })}
@@ -51,6 +51,7 @@ const AddReviews = () => {
           type="number"
           className="inputField"
         />
+        <br />
         <Rating
           value={value}
           name="simple-controlled"
@@ -58,11 +59,15 @@ const AddReviews = () => {
             setValue(newValue);
           }}
         />
-
         <br />
-
         <br />
-        <Button type="submit" variant="contained" className="button">
+        <Button
+          type="submit"
+          variant="contained"
+          className="button"
+          color="secondary"
+          sx={{ my: "20px" }}
+        >
           Submit
         </Button>
       </form>

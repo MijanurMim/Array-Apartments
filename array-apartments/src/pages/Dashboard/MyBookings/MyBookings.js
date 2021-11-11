@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import MyBooking from "./MyBooking/MyBooking";
@@ -81,8 +82,8 @@ const MyBookings = () => {
   };
 
   return (
-    <div>
-      <Typography variant="h2" sx={{ mt: "100px" }} color="primary">
+    <Box>
+      <Typography variant="h2" sx={{ mt: "100px" }} color="secondary">
         My Bookings:{myPackages.length}{" "}
       </Typography>
       {myPackagesDetails.map((pd) => (
@@ -93,7 +94,7 @@ const MyBookings = () => {
           handleDelete={handleDelete}
         ></MyBooking>
       ))}
-    </div>
+    </Box>
   );
 };
 

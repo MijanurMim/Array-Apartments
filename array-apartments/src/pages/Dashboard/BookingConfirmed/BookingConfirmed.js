@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import Booking from "./Booking.js/Booking";
@@ -81,19 +81,21 @@ const MyBookings = () => {
   };
 
   return (
-    <div>
+    <Grid container>
       <Typography variant="h2" sx={{ mt: "100px" }} color="primary">
         My Bookings:{myPackages.length}{" "}
       </Typography>
-      {myPackagesDetails.map((pd) => (
-        <Booking
-          key={pd._id}
-          pd={pd}
-          handleUpdate={handleUpdate}
-          handleDelete={handleDelete}
-        ></Booking>
-      ))}
-    </div>
+      <Grid item sm={12} md={6}>
+        {myPackagesDetails.map((pd) => (
+          <Booking
+            key={pd._id}
+            pd={pd}
+            handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
+          ></Booking>
+        ))}
+      </Grid>
+    </Grid>
   );
 };
 
