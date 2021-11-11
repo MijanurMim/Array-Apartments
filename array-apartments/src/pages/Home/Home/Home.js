@@ -2,6 +2,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button, Grid } from "@mui/material";
 import React, { useState } from "react";
 import Packages from "../../Packages/Packages/Packages";
+import Reviews from "../../Reviews/Reviews/Reviews";
 import Banner from "../Banner/Banner";
 import SearchResult from "../SearchResult/SearchResult";
 import Welcome from "../Welcome/Welcome";
@@ -63,7 +64,11 @@ const Home = () => {
       {/* Home packages  */}
       <Packages></Packages>
       {/* Why US area  */}
+
       <WhyUs />
+
+      {/* Review area  */}
+      <Reviews></Reviews>
     </div>
   );
 };

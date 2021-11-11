@@ -1,7 +1,5 @@
 import ShareIcon from "@mui/icons-material/Share";
 import {
-  Avatar,
-  Button,
   CardActionArea,
   CardActions,
   CardHeader,
@@ -10,12 +8,10 @@ import {
 } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import { Link } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -32,16 +28,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Package = ({ pd, handleDelete }) => {
-  const { _id, title, date, image, description } = pd;
-  const { admin } = useAuth();
+const Review = ({ pd }) => {
   const classes = useStyles();
-
+  // const [value, setValue] = React.useState(2);
+  const { title, description, rating, email } = pd;
   return (
     <Grid item xs={12} md={5} sx={{ m: "20px" }}>
       <Card className={classes.card}>
         <CardHeader
-          avatar={<Avatar aria-label="recipe" src={image}></Avatar>}
           action={
             <IconButton aria-label="settings">
               <ShareIcon></ShareIcon>
@@ -50,33 +44,22 @@ const Package = ({ pd, handleDelete }) => {
           title={title}
         />
         <CardActionArea>
-          <CardMedia
-            component="img"
-            height="140"
-            image={image}
-            alt="green iguana"
-          />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              {description} {date}
+              {description}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {email}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              <Rating name="read-only" value={rating} readOnly />
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions className={classes.cardButton}>
-          {/* dynamic routing for every service  */}
-          <Link to={`/packageDetails/${_id}`} className={classes.buttonText}>
-            <Button variant="outlined">Book {title.toLowerCase()} </Button>
-          </Link>
-
-          {admin && (
-            <Button onClick={() => handleDelete(pd._id)} variant="contained">
-              Delete
-            </Button>
-          )}
-        </CardActions>
+        <CardActions className={classes.cardButton}></CardActions>
       </Card>
     </Grid>
   );
 };
 
-export default Package;
+export default Review;

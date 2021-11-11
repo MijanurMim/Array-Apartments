@@ -15,12 +15,12 @@ import * as React from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import AddReviews from "../../Reviews/AddReviews/AddReviews";
 import AddPackages from "../AddPackages/AddPackages";
 import AdminManagePackages from "../AdminManagePackages/AdminManagePackages.js/AdminManagePackages.js";
 import MakeAdmin from "../MakeAdmin/MakeAdmin.js";
 import MyBookings from "../MyBookings/MyBookings";
 import Payment from "../Payment/Payment";
-import Reviews from "../Reviews/Reviews/Reviews";
 import TotalBookings from "../TotalBookings/TotalBookings";
 
 const drawerWidth = 200;
@@ -51,8 +51,8 @@ function Dashboard(props) {
           <Link to={`${url}/myBookings`}>
             <Button color="secondary">My Bookings</Button>
           </Link>
-          <Link to={`${url}/reviews`}>
-            <Button color="secondary">Reviews</Button>
+          <Link to={`${url}/addReviews`}>
+            <Button color="secondary">Give Reviews</Button>
           </Link>
         </Box>
       )}
@@ -147,8 +147,8 @@ function Dashboard(props) {
           <Route exact path={`${url}/myBookings`}>
             <MyBookings></MyBookings>
           </Route>
-          <Route exact path={`${url}/reviews`}>
-            <Reviews></Reviews>
+          <Route exact path={`${url}/addReviews`}>
+            <AddReviews></AddReviews>
           </Route>
 
           {/* Admin Route  */}

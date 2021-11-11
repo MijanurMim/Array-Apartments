@@ -10,7 +10,7 @@ const Packages = () => {
     fetch("http://localhost:5000/allPackages")
       .then((res) => res.json())
       .then((data) => setPackages(data));
-  }, [control]);
+  }, []);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are You Sure You Want to Delete ? ");
