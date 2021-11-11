@@ -4,11 +4,14 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#b2dfdb",
+      main: "#424242",
+    },
+    secondary: {
+      main: "#8bc34a",
     },
   },
   background: {
-    default: "#cfd8dc",
+    default: "#f5f5f5",
   },
   typography: {
     fontFamily: "Quicksand",

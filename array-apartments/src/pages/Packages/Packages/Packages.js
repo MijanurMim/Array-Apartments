@@ -39,8 +39,8 @@ const Packages = () => {
 
   return (
     <div>
-      <Typography variant="h3" color="primary" sx={{ mt: "80px" }}>
-        Our Packages
+      <Typography variant="h3" color="secondary" sx={{ mt: "100px" }}>
+        Apartment Packages
       </Typography>
       <Grid item container xs={12} spacing={4}>
         {/* this line is for side space of the page  */}

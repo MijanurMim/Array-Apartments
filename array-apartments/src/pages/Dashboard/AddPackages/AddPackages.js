@@ -65,9 +65,9 @@ const AddPackages = () => {
           type="date"
           className="inputField"
         >
-          <option value="single">Single</option>
-          <option value="couple">Couple</option>
-          <option value="family">Family</option>
+          <option value="single">Single Bedroom</option>
+          <option value="couple">Double Bedroom</option>
+          <option value="family">Four Bedroom</option>
         </select>
         <br />
         <Button type="submit" variant="contained" className="button">

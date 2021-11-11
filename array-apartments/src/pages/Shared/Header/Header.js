@@ -40,7 +40,9 @@ const Header = () => {
             <Grid container sx={{ py: "10px" }}>
               {/* Appbar Name and logo  */}
               <Grid item xs={12} md={2}>
-                <Typography variant="h4">Fellow Travellers</Typography>
+                <Typography variant="h5" color="secondary">
+                  Array Apartments
+                </Typography>
               </Grid>
 
               {/* appbar routing area  */}
@@ -91,15 +93,24 @@ const Header = () => {
                   <Avatar>
                     <img src={user?.photoURL} alt="" />
                   </Avatar>
-                  <Typography>{user?.displayName}</Typography>
+                  <Typography color="secondary">{user?.displayName}</Typography>
                   {/* login button and logout  */}
                   {user?.email ? (
-                    <Button onClick={logOut} variant="contained" sx={{ mx: 2 }}>
+                    <Button
+                      onClick={logOut}
+                      variant="contained"
+                      sx={{ mx: 2 }}
+                      color="secondary"
+                    >
                       logout
                     </Button>
                   ) : (
                     <Link to="/login" className={classes.link}>
-                      <Button variant="contained" sx={{ mx: 2 }}>
+                      <Button
+                        variant="contained"
+                        sx={{ mx: 2 }}
+                        color="secondary"
+                      >
                         login
                       </Button>
                     </Link>

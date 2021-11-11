@@ -33,9 +33,9 @@ const Home = () => {
           className="search"
           onChange={handleInput}
           type="text"
-          placeholder="Search Your Desired Destination"
+          placeholder="Search Your Desired Location "
         />
-        <Button onClick={handleSearch}>
+        <Button onClick={handleSearch} color="secondary">
           <SearchIcon />
         </Button>
       </div>

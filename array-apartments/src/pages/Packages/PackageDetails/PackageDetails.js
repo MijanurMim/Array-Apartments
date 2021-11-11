@@ -15,7 +15,7 @@ import { makeStyles } from "@mui/styles";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
-import useFirebase from "../../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 import "./PackageDetails.css";
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const PackageDetails = () => {
   // custom css classes
   const classes = useStyles();
-  const { user } = useFirebase();
+  const { user } = useAuth();
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -79,7 +79,7 @@ const PackageDetails = () => {
                 <Avatar aria-label="recipe" src={packageDetail.image}></Avatar>
               }
               action={
-                <IconButton aria-label="settings">
+                <IconButton aria-label="settings" color="secondary">
                   <ShareIcon></ShareIcon>
                 </IconButton>
               }
@@ -94,11 +94,11 @@ const PackageDetails = () => {
               />
               <CardContent></CardContent>
             </CardActionArea>
-            <Typography variant="body2" color="text.secondary">
+            {/* <Typography variant="body2" color="text.secondary">
               {packageDetail.description} {packageDetail.date}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {packageDetail.cost}
+            </Typography> */}
+            <Typography variant="h6" color="secondary">
+              BDT : {packageDetail.cost}
             </Typography>
           </Card>
         </Grid>
@@ -106,10 +106,10 @@ const PackageDetails = () => {
 
       {/* form area  */}
       <Grid item xs={12} md={4} className="packageDetailForm">
-        <Typography variant="h4" color="primary">
+        <Typography variant="h4" color="secondary">
           Package Details
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} color="secondary">
           {packageDetail.title && (
             <input
               {...register("title", { required: true })}
@@ -132,17 +132,23 @@ const PackageDetails = () => {
               className="inputField"
             />
           )}
-          {packageDetail.packageType && (
+          {packageDetail.description && (
             <input
-              {...register("packageType", { required: true })}
-              defaultValue={packageDetail.packageType}
+              {...register("cost", { required: true })}
+              defaultValue={packageDetail.cost}
               className="inputField"
             />
           )}
+
           <br />
 
-          <Button type="submit" variant="contained" className="button">
-            Confirm Tour
+          <Button
+            type="submit"
+            variant="contained"
+            color="secondary"
+            className="button"
+          >
+            Confirm Booking
           </Button>
         </form>
       </Grid>

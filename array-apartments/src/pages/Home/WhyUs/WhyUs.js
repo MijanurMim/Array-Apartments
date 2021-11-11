@@ -25,7 +25,7 @@ const WhyUs = () => {
       <Grid item xs={12} md={4}>
         <img
           className={classes.whyUsImg}
-          src="https://image.freepik.com/free-vector/questions-concept-illustration_114360-2383.jpg"
+          src="https://image.freepik.com/free-photo/breakup-marriage-couple-with-divorce-certification_53876-14774.jpg"
           alt=""
         />
       </Grid>
