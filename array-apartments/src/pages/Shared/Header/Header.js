@@ -81,13 +81,22 @@ const Header = () => {
                     Total Bookings
                   </Button>
                 </Link>
-                <Link to="/admin" className={classes.link}>
+                <Link to="/dashboard" className={classes.link}>
                   <Button
                     variant="contained"
                     sx={{ mx: 2 }}
                     className={classes.navbarButton}
                   >
-                    Admin
+                    Dashboard
+                  </Button>
+                </Link>
+                <Link to="/register" className={classes.link}>
+                  <Button
+                    variant="contained"
+                    sx={{ mx: 2 }}
+                    className={classes.navbarButton}
+                  >
+                    Register
                   </Button>
                 </Link>
               </Grid>

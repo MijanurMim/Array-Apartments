@@ -3,7 +3,7 @@ import "./App.css";
 import AuthProvider from "./Context/AuthProvider";
 import AddMember from "./pages/AddMember/AddMember";
 import AddPackages from "./pages/AddPackages/AddPackages";
-import AdminDashboard from "./pages/Admin/AdminDashboard/AdminDashboard";
+import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Home from "./pages/Home/Home/Home";
 import Login from "./pages/Login/Login/Login";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
@@ -54,8 +54,8 @@ function App() {
               <TotalBookings></TotalBookings>
             </PrivateRoute>
 
-            <PrivateRoute exact path="/admin">
-              <AdminDashboard></AdminDashboard>
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
             </PrivateRoute>
 
             <Route exact path="/login">
