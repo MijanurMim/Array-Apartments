@@ -31,9 +31,10 @@ const AddReviews = () => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register("title", { required: true })}
-          placeholder="Title"
+          {...register("displayName", { required: true })}
+          placeholder="name"
           className="inputField"
+          defaultValue={user.displayName}
         />
 
         <input

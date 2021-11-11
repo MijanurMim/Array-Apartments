@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 const Review = ({ pd }) => {
   const classes = useStyles();
   // const [value, setValue] = React.useState(2);
-  const { title, description, rating, email } = pd;
+  const { description, rating, email, displayName } = pd;
   return (
     <Grid item xs={12} md={5} sx={{ m: "20px" }}>
       <Card className={classes.card}>
@@ -41,7 +41,7 @@ const Review = ({ pd }) => {
               <ShareIcon></ShareIcon>
             </IconButton>
           }
-          title={title}
+          title={displayName}
         />
         <CardActionArea>
           <CardContent>

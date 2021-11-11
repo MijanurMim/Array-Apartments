@@ -1,14 +1,24 @@
-import MailIcon from "@mui/icons-material/Mail";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import { Button } from "@mui/material";
+import { BookmarkRemoveTwoTone } from "@mui/icons-material";
+import AdminPanelSettingsTwoToneIcon from "@mui/icons-material/AdminPanelSettingsTwoTone";
+import ExitToAppTwoToneIcon from "@mui/icons-material/ExitToAppTwoTone";
+import ManageAccountsTwoToneIcon from "@mui/icons-material/ManageAccountsTwoTone";
+import MenuIcon from "@mui/icons-material/Menu";
+import MiscellaneousServicesTwoToneIcon from "@mui/icons-material/MiscellaneousServicesTwoTone";
+import PaymentTwoToneIcon from "@mui/icons-material/PaymentTwoTone";
+import RateReviewTwoToneIcon from "@mui/icons-material/RateReviewTwoTone";
+import TableChartTwoToneIcon from "@mui/icons-material/TableChartTwoTone";
+import {
+  AppBar,
+  Avatar,
+  Button,
+  IconButton,
+  Paper,
+  Typography,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import PropTypes from "prop-types";
 import * as React from "react";
@@ -23,7 +33,7 @@ import MyBookings from "../MyBookings/MyBookings";
 import Payment from "../Payment/Payment";
 import TotalBookings from "../TotalBookings/TotalBookings";
 
-const drawerWidth = 200;
+const drawerWidth = 300;
 
 // main function starts here
 function Dashboard(props) {
@@ -31,7 +41,7 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
+  const { admin, logOut, user } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -39,49 +49,99 @@ function Dashboard(props) {
 
   const drawer = (
     <div>
+      <Paper
+        elevation="0"
+        sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+      >
+        <Avatar sx={{ width: "100px", height: "100px" }}>
+          <img src={user?.photoURL} alt="" srcset="" />
+        </Avatar>
+        <Typography variant="h6" color="secondary">
+          {user.displayName}
+        </Typography>
+      </Paper>
       <Toolbar />
       <Divider />
 
       {/* Nesting area  */}
       {!admin && (
         <Box>
-          <Link to={`${url}/payment`}>
-            <Button color="secondary">Payment</Button>
+          <Link to={`${url}/payment`} style={{ textDecoration: "none" }}>
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <PaymentTwoToneIcon />
+              <Button color="secondary">Payment</Button>
+            </Button>
           </Link>
-          <Link to={`${url}/myBookings`}>
-            <Button color="secondary">My Bookings</Button>
+
+          <Link to={`${url}/myBookings`} style={{ textDecoration: "none" }}>
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <BookmarkRemoveTwoTone />
+              <Button color="secondary">My Bookings</Button>
+            </Button>
           </Link>
-          <Link to={`${url}/addReviews`}>
-            <Button color="secondary">Give Reviews</Button>
+
+          <Link to={`${url}/addReviews`} style={{ textDecoration: "none" }}>
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <RateReviewTwoToneIcon />
+              <Button color="secondary">Give Reviews</Button>
+            </Button>
           </Link>
+
+          <Button
+            onClick={logOut}
+            variant="contained"
+            sx={{ mt: "400px" }}
+            color="secondary"
+          >
+            <ExitToAppTwoToneIcon />
+            logout
+          </Button>
         </Box>
       )}
       {admin && (
         <Box>
-          <Link to={`${url}/makeAdmin`}>
-            <Button color="secondary">Make Admin</Button>
+          <Link to={`${url}/makeAdmin`} style={{ textDecoration: "none" }}>
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <AdminPanelSettingsTwoToneIcon />
+              <Button color="secondary">Make Admin</Button>
+            </Button>
           </Link>
-          <Link to={`${url}/addPackages`}>
-            <Button color="secondary">Add Packages</Button>
+
+          <Link to={`${url}/addPackages`} style={{ textDecoration: "none" }}>
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <MiscellaneousServicesTwoToneIcon />
+              <Button color="secondary">Add Packages</Button>
+            </Button>
           </Link>
-          <Link to={`${url}/adminManagePackages`}>
-            <Button color="secondary">Manage All Packages</Button>
+
+          <Link
+            to={`${url}/adminManagePackages`}
+            style={{ textDecoration: "none" }}
+          >
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <ManageAccountsTwoToneIcon />
+              <Button color="secondary">Manage All Packages</Button>
+            </Button>
           </Link>
-          <Link to={`${url}/totalBookings`}>
-            <Button color="secondary">Total Bookings</Button>
+
+          <Link to={`${url}/totalBookings`} style={{ textDecoration: "none" }}>
+            <Button sx={{ width: "100%" }} variant="outlined" color="secondary">
+              <TableChartTwoToneIcon />
+              <Button color="secondary">Total Bookings</Button>
+            </Button>
           </Link>
+
+          <Button
+            onClick={logOut}
+            variant="contained"
+            color="secondary"
+            sx={{ mt: "400px" }}
+          >
+            <ExitToAppTwoToneIcon />
+            logout
+          </Button>
         </Box>
       )}
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
     </div>
   );
 
@@ -91,6 +151,28 @@ function Dashboard(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            Dashboard
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
       <Box
         component="nav"
@@ -144,6 +226,7 @@ function Dashboard(props) {
           <Route exact path={`${url}/payment`}>
             <Payment></Payment>
           </Route>
+
           <Route exact path={`${url}/myBookings`}>
             <MyBookings></MyBookings>
           </Route>
